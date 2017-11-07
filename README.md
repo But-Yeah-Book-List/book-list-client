@@ -1,17 +1,21 @@
-# book-list-client
-Code Fellows 301 Week 3 Project - Book App - Client Side
+# But Yeah Book List
 
-**Author**: Seth Donohue, Robert McReed
-**Version**: 1.0.0 (increment the patch/fix version number up if you make more commits past your first submission)
+**Author**: Seth Donohue and Robert Reed
+**Version**: 1.0.0
 
 ## Overview
-<!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for a Code Fellows 301 class. (i.e. What's your problem domain?) -->
+The goal of this project is to implement a basic full stack application scaffold for a book list, which will render books from a PostgreSQL database.
 
 ## Getting Started
-<!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
+Create an organization on GitHub
+Setup basic scaffolding of full stack application for client side and server side
+Connect your server repo to heroku
 
 ## Architecture
-<!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
+- express
+- cors
+- pg
+- heroku
 
 ## Change Log
 <!-- Use this are to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an examples:
@@ -20,4 +24,3 @@ Code Fellows 301 Week 3 Project - Book App - Client Side
 
 ## Credits and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
--->
