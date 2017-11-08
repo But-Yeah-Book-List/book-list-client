@@ -3,11 +3,41 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/base.css">
     <title>Hello World</title>
+    <script id="book-list-template" type="text/x-handlebars-template">
+      <li class="book-item">
+        <h2>{{title}}</h2>
+        <h3>{{author}}</h3>
+      </li>
+    </script>
+    <script id="error-template" type="text/x-handlebars-template">
+      <p>{{status}}: {{statusText}}</p>
+    </script>
   </head>
   <body>
-    <h1>Hello World!</h1>
-    <p>Hello there, little world!</p>
-    <!-- Load scripts here -->
+    <header>
+      <h1>Books!</h1>
+    </header>
+    <main>
+      <section class="error-view container">
+        <h3>Something went terribly wrong.</h3>
+        <section id="error-message"></section>
+      </section>
+
+      <section class="book-view container">
+        <h3>My Boooooooks!</h3>
+        <ul id="book-list"></ul>
+      </section>
+    </main>
+    <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+  <script type="text/javascript" src="scripts/models/book.js">
+  </script>
+  <script type="text/javascript" src="scripts/views/book-view.js"></script>
+  <script type="text/javascript" src="scripts/views/error-view.js"></script>
   </body>
 </html>
