@@ -5,6 +5,22 @@ var app = app || {};
 var __API_URL__ = 'http://localhost:3000';
 
 (function(module) {
+  function Book(bookObject) {
+    Object.keys(bookObject).forEach(key => this[key] = bookObject[key]);
+  }
+
+  Book.prototype.toHtml = function() {
+    let template = Handlebars.compile($('#book-list-template').text());
+
+    return template(this);
+  };
+
+  Book.all = [];
+
+  Book.loadAll = rows => {
+    Book.all = rows.sort((a,b) => a.title < b.title ? -1 : a.title > b.title ? 1 : 0).map(bookObject => new Book(bookObject));
+  };
+
   $.get(`${__API_URL__}/test`)
     .then(console.log);
 
