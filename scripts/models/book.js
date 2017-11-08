@@ -9,6 +9,10 @@ var __API_URL__ = 'http://localhost:3000';
     Object.keys(bookObject).forEach(key => this[key] = bookObject[key]);
   }
 
+  function errorCallback(err) {
+    module.errorView.initErrorPage(err);
+  }
+
   Book.prototype.toHtml = function() {
     let template = Handlebars.compile($('#book-list-template').text());
 
@@ -21,7 +25,12 @@ var __API_URL__ = 'http://localhost:3000';
     Book.all = rows.sort((a,b) => a.title < b.title ? -1 : a.title > b.title ? 1 : 0).map(bookObject => new Book(bookObject));
   };
 
-  $.get(`${__API_URL__}/test`)
-    .then(console.log);
+  Book.fetchAll = callback => {
+    $.get(`${__API_URL__}/api/v1/books`)
+      .then(Book.loadAll)
+      .then(callback)
+      .catch(errorCallback);
+  }
 
+  module.Book = Book;
 })(app);
