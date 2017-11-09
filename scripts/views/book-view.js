@@ -23,6 +23,7 @@ var app = app || {};
   bookView.initFormPage = function() {
     $('.container').hide();
     $('.create-view').show();
+    $('#new-book').on('submit', module.Book.createBookHandler);
   }
 
   module.bookView = bookView;

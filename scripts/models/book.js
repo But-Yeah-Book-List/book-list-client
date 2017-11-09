@@ -1,8 +1,8 @@
 'use strict';
 
 var app = app || {};
-// var __API_URL__ = 'https://sd-rr-booklist.herokuapp.com';
-var __API_URL__ = 'http://localhost:3000';
+var __API_URL__ = 'https://sd-rr-booklist.herokuapp.com';
+// var __API_URL__ = 'http://localhost:3000';
 
 (function(module) {
   function Book(bookObject) {
@@ -39,6 +39,24 @@ var __API_URL__ = 'http://localhost:3000';
       .then(callback)
       .catch(errorCallback);
   }
+
+  Book.createBookHandler = function(e) {
+    e.preventDefault();
+    let book = {
+      title: e.target.title.value,
+      author: e.target.author.value,
+      isbn: e.target.isbn.value,
+      image_url: e.target.image_url.value,
+      description: e.target.description.value,
+    }
+    Book.addNewBook(book);
+  };
+
+  Book.addNewBook = function(book) {
+    $.post(`${__API_URL__}/api/v1/books`, book)
+      .then(() => page('/'))
+      .catch(errorCallback);
+  };
 
   module.Book = Book;
 })(app);
