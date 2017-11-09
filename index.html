@@ -9,6 +9,7 @@
       <li class="book-item">
         <h2>{{title}}</h2>
         <h3>{{author}}</h3>
+        <img src="{{image_url}}">
         <a href="/books/{{book_id}}">View Details</a>
       </li>
     </script>
@@ -38,11 +39,24 @@
       <section class="book-view container">
         <h3>My Boooooooks!</h3>
         <ul id="book-list"></ul>
+        <a href="/books/new">asdasd</a>
       </section>
       <section class="book-detail container">
         <h3>My BOOOK!</h3>
         <ul id="book-detail"></ul>
       </section>
+      <section class="create-view container">
+        <h3>Add a new book</h3>
+        <form id="new-book">
+          <input type="text" name="title" placeholder="title" />
+          <input type="text" name="author" placeholder="author" />
+          <input type="text" name="isbn" placeholder="isbn" />
+          <input type="text" name="image url" placeholder="image url" />
+          <textarea name="description" rows="10" cols="30" placeholder="description..."></textarea>
+        </form>
+
+      </section>
+
     </main>
     <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"

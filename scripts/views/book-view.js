@@ -20,6 +20,11 @@ var app = app || {};
     $('.book-detail').show();
   };
 
+  bookView.initFormPage = function() {
+    $('.container').hide();
+    $('.create-view').show();
+  }
+
   module.bookView = bookView;
 })(app);
 
