@@ -1,8 +1,8 @@
 'use strict';
 
 var app = app || {};
-// var __API_URL__ = 'https://sd-rr-booklist.herokuapp.com';
-var __API_URL__ = 'http://localhost:3000';
+var __API_URL__ = 'https://sd-rr-booklist.herokuapp.com';
+// var __API_URL__ = 'http://localhost:3000';
 
 (function(module) {
   function Book(bookObject) {
@@ -58,6 +58,12 @@ var __API_URL__ = 'http://localhost:3000';
       .then(() => page('/'))
       .catch(errorCallback);
   };
+
+  //jQuery for Icon Menu
+  $('.icon-menu').click(function() {
+    console.log('clicking');
+    $('.menu-link').toggle();
+  });
 
   module.Book = Book;
 })(app);

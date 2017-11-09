@@ -23,3 +23,25 @@ h3 {
 li {
   margin-bottom: 1%;
 }
+
+.icon-menu {
+  display: inline;
+  position: absolute;
+  top: 1vh;
+  right: 3vw;
+  font-size: 300%;
+}
+
+.main-nav li{
+  display: none;
+}
+
+/*.icon-menu:hover + ul {
+  display: block;
+}*/
+
+/*.main-nav:hover {
+  display: block;
+  background-color: gray;
+
+}*/
