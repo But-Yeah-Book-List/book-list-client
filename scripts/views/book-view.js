@@ -15,11 +15,12 @@ var app = app || {};
 
   bookView.initDetailPage = function(ctx) {
     $('.container').hide();
-    let book = new module.Book(ctx.book);
+    console.log(ctx);
+    let book = new module.Book(ctx);
     $('.book-detail').append(book.toHtml('detail'));
-  }
+  };
 
   module.bookView = bookView;
 })(app);
 
-$(app.Book.fetchAll(app.bookView.initIndexPage));
+// $(app.Book.fetchAll(app.bookView.initIndexPage));
