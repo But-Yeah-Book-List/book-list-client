@@ -13,11 +13,11 @@ var app = app || {};
     $('.book-view').append(`<section><h3>About Us</h3><p>Seth Donohue and Robert Reed developed this site with love.</p></section>`);
   };
 
-  bookView.initDetailPage = function(ctx) {
+  bookView.initDetailPage = function(ctxBook) {
     $('.container').hide();
-    console.log(ctx);
-    let book = new module.Book(ctx);
-    $('.book-detail').append(book.toHtml('detail'));
+    let book = new module.Book(ctxBook);
+    $('#book-detail').empty().append(book.toHtml('detail'));
+    $('.book-detail').show();
   };
 
   module.bookView = bookView;
