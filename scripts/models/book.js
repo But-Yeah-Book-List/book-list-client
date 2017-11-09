@@ -1,8 +1,8 @@
 'use strict';
 
 var app = app || {};
-var __API_URL__ = 'https://sd-rr-booklist.herokuapp.com';
-// var __API_URL__ = 'http://localhost:3000';
+// var __API_URL__ = 'https://sd-rr-booklist.herokuapp.com';
+var __API_URL__ = 'http://localhost:3000';
 
 (function(module) {
   function Book(bookObject) {
@@ -30,6 +30,7 @@ var __API_URL__ = 'https://sd-rr-booklist.herokuapp.com';
     $.get(`${__API_URL__}/api/v1/books`)
       .then(Book.loadAll)
       .then(callback)
+      .then(module.bookView.fixLinks)
       .catch(errorCallback);
   };
 
