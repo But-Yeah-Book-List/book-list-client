@@ -11,8 +11,10 @@
         <h2>{{title}}</h2>
         <h3>{{author}}</h3>
         <img src="{{image_url}}">
-        <!-- TODO: add /book-list-client before /book to make deployed version work -->
+        <!-- TODO: hide  below for local -->
         <a class="book-detail-link" href="/book-list-client/books/{{book_id}}">View Details</a>
+        <!-- TODO: hide below for deployment -->
+        <!-- <a class="book-detail-link" href="/books/{{book_id}}">View Details</a> -->
       </li>
     </script>
     <script id="book-detail-template" type="text/x-handlebars-template">
@@ -35,7 +37,10 @@
     <nav class="main-nav">
       <div class="icon-menu"></div>
       <ul>
-        <li class="menu-link"><a href="/new" >Add a Book</a></li>
+        <!-- TODO: hide below for local -->
+        <li class="menu-link"><a href="/book-list-client/books/new" >Add a Book</a></li>
+        <!-- TODO: hide below for deployment -->
+        <!-- <li class="menu-link"><a href="/books/new" >Add a Book</a></li> -->
         <li class="menu-link"><a href="/" >Book List</a></li>
       </ul>
     </nav>
@@ -50,8 +55,6 @@
       <section class="book-view container">
         <h3>My Boooooooks!</h3>
         <ul id="book-list"></ul>
-        <!-- TODO: add /book-list-client before /book to make deployed version work -->
-        <a class="new-book-link" href="/book-list-client/books/new">Add book</a>
       </section>
       <section class="book-detail container">
         <h3>My BOOOK!</h3>
