@@ -30,6 +30,7 @@ var __API_URL__ = 'https://sd-rr-booklist.herokuapp.com';
     $.get(`${__API_URL__}/api/v1/books`)
       .then(Book.loadAll)
       .then(callback)
+      .then(module.bookView.fixLinks)
       .catch(errorCallback);
   };
 
