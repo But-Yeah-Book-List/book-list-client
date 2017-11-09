@@ -11,7 +11,7 @@
         <h3>{{author}}</h3>
         <img src="{{image_url}}">
         <!-- TODO: add /book-list-client before /book to make deployed version work -->
-        <a class="/book-detail-link" href="/books/{{book_id}}">View Details</a>
+        <a class="/book-list-client/book-detail-link" href="/books/{{book_id}}">View Details</a>
       </li>
     </script>
     <script id="book-detail-template" type="text/x-handlebars-template">
@@ -41,7 +41,7 @@
         <h3>My Boooooooks!</h3>
         <ul id="book-list"></ul>
         <!-- TODO: add /book-list-client before /book to make deployed version work -->
-        <a class="new-book-link" href="/books/new">Add book</a>
+        <a class="new-book-link" href="/book-list-client/books/new">Add book</a>
       </section>
       <section class="book-detail container">
         <h3>My BOOOK!</h3>
