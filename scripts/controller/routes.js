@@ -4,6 +4,6 @@
 
 page('/', app.bookView.initIndexPage);
 page('/error', app.errorView.initErrorPage);
-page('/books/:book_id', app.bookView.initDetailPage);
+page('/books/:book_id', ctx => app.Book.fetchOne(ctx, app.bookView.initDetailPage));
 
 page();
