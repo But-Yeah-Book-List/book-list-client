@@ -9,6 +9,16 @@
       <li class="book-item">
         <h2>{{title}}</h2>
         <h3>{{author}}</h3>
+        <a href="/books/{{book_id}}"></a>
+      </li>
+    </script>
+    <script id="book-detail-template" type="text/x-handlebars-template">
+      <li class="book-item">
+        <h2>{{title}}</h2>
+        <h3>{{author}}</h3>
+        <h3>{{isbn}}</h3>
+        <img src="{{image_url}}">
+        <p>{{description}}</p>
       </li>
     </script>
     <script id="error-template" type="text/x-handlebars-template">
@@ -27,6 +37,10 @@
 
       <section class="book-view container">
         <h3>My Boooooooks!</h3>
+        <ul id="book-list"></ul>
+      </section>
+      <section class="book-detail container">
+        <h3>My BOOOK!</h3>
         <ul id="book-list"></ul>
       </section>
     </main>

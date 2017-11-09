@@ -13,11 +13,12 @@ var __API_URL__ = 'http://localhost:3000';
     module.errorView.initErrorPage(err);
   }
 
-  Book.prototype.toHtml = function() {
-    let template = Handlebars.compile($('#book-list-template').text());
+  Book.prototype.toHtml = function(type) {
+    let template = Handlebars.compile($(`#book-${type}-template`).text());
 
     return template(this);
   };
+
 
   Book.all = [];
 
@@ -28,6 +29,13 @@ var __API_URL__ = 'http://localhost:3000';
   Book.fetchAll = callback => {
     $.get(`${__API_URL__}/api/v1/books`)
       .then(Book.loadAll)
+      .then(callback)
+      .catch(errorCallback);
+  };
+
+  Book.fetchOne = callback => {
+    $.get(`${__API_URL__}/api/v1/books/${ctx.params.book_id}`)
+      .then(results => ctx.book = results[0])
       .then(callback)
       .catch(errorCallback);
   }
