@@ -13,10 +13,7 @@
           <h3>{{author}}</h3>
         </div>
         <img src="{{image_url}}">
-        <!-- TODO: show for gh -->
-        <a class="book-detail-link" href="/book-list-client/books/{{book_id}}">View Details</a>
-        <!-- TODO: show for local -->
-        <!-- <a class="book-detail-link" href="/books/{{book_id}}">View Details</a> -->
+        <a class="book-detail-link" href="books/{{book_id}}">View Details</a>
       </li>
     </script>
     <script id="book-detail-template" type="text/x-handlebars-template">
@@ -26,10 +23,7 @@
         <h3>{{isbn}}</h3>
         <img src="{{image_url}}">
         <p>{{description}}</p>
-        <!-- TODO: show for gh -->
-        <a href="/book-list-client/books/{{book_id}}/update">Update Book</a>
-        <!-- TODO: show for local -->
-        <!-- <a href="/books/{{book_id}}/update">Update Book</a> -->
+        <a href="{{book_id}}/update">Update Book</a>
         <a id="delete-book" href="#">Delete Book</a>
       </li>
     </script>
@@ -46,9 +40,6 @@
           <!-- TODO: show for gh -->
           <li class="menu-link"><a href="/book-list-client/books/new" >Add a Book</a></li>
           <li class="menu-link"><a href="/book-list-client/" >Book List</a></li>
-          <!-- TODO: show for local -->
-          <!-- <li class="menu-link"><a href="/books/new" >Add a Book</a></li> -->
-          <!-- <li class="menu-link"><a href="/" >Book List</a></li> -->
         </ul>
       </nav>
     </header>
