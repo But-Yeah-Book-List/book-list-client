@@ -35,8 +35,6 @@ var __API_URL__ = 'http://localhost:3000';
   };
 
   Book.updateBook = function(ctxBook, newBookData) {
-    console.log('CTX', ctxBook);
-    console.log('new Book', newBookData);
     $.ajax({
       url: `${__API_URL__}/api/v1/books/${ctxBook.book_id}`,
       method: 'PUT',
@@ -70,11 +68,6 @@ var __API_URL__ = 'http://localhost:3000';
     e.preventDefault();
     Book.addNewBook(Book.getFormData(e));
   };
-
-  // Book.updateBookHandler = function(e) {
-  //   e.preventDefault();
-  //   Book.updateBook(Book.getFormData(e));
-  // };
 
   Book.addNewBook = function(book) {
     $.post(`${__API_URL__}/api/v1/books`, book)
