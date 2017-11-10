@@ -28,3 +28,11 @@ header {
   background-color: grey;
   padding: 5% 0px;
 }
+
+#book-list-image {
+  max-width: 300px;
+}
+
+#book-detail-image {
+  max-width: 480px;
+}

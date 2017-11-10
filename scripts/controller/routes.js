@@ -13,5 +13,6 @@ page('/error', app.errorView.initErrorPage);
 page('/books/new', app.bookView.initFormPage);
 page('/books/:book_id', ctx => app.Book.fetchOne(ctx, app.bookView.initDetailPage));
 page('/books/:book_id/update', ctx => app.Book.fetchOne(ctx, app.bookView.initUpdateFormPage));
+page('/admin', ctx => app.adminView.initAdminPage, app.adminView.verify);
 
 page();
