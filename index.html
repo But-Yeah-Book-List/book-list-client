@@ -26,6 +26,11 @@
         <h3>{{isbn}}</h3>
         <img src="{{image_url}}">
         <p>{{description}}</p>
+        <!-- TODO: show for gh -->
+        <!-- <a href="/book-list-client/books/{{book_id}}/update">Update Book</a> -->
+        <!-- TODO: show for local -->
+        <a href="/books/{{book_id}}/update">Update Book</a>
+        <a id="delete-book" href="#">Delete Book</a>
       </li>
     </script>
     <script id="error-template" type="text/x-handlebars-template">
@@ -65,11 +70,11 @@
       <section class="create-view container">
         <h3>Add a new book</h3>
         <form id="new-book">
-          <input type="text" name="title" placeholder="title" required />
-          <input type="text" name="author" placeholder="author" required />
-          <input type="text" name="isbn" placeholder="isbn" required />
-          <input type="text" name="image_url" placeholder="image url" required />
-          <textarea name="description" rows="10" cols="30" placeholder="description..." required></textarea>
+          <input id="title-form" type="text" name="title" placeholder="title" required />
+          <input id="author-form" type="text" name="author" placeholder="author" required />
+          <input id="isbn-form" type="text" name="isbn" placeholder="isbn" required />
+          <input id="image_url-form" type="text" name="image_url" placeholder="image url" required />
+          <textarea id="description-form" name="description" rows="10" cols="30" placeholder="description..." required></textarea>
           <button type="submit" name="submit">Add New Book</button>
         </form>
 
