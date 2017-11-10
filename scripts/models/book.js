@@ -2,7 +2,7 @@
 
 var app = app || {};
 var __API_URL__ = 'https://sd-rr-booklist.herokuapp.com';
-// var __API_URL__ = 'http://localhost:3000';
+if(location.hostname !== 'but-yeah-book-list.github.io') __API_URL__ = 'http://localhost:3000';
 
 (function(module) {
   function Book(bookObject) {

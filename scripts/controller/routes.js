@@ -1,11 +1,7 @@
 'use strict';
 
-// Fixes the page.js issues with local vs deployment
-(function(){
-  if(__API_URL__ !== 'http://localhost:3000') { //eslint-disable-line
-    page.base('/book-list-client');
-  }
-})();
+// Set the page.js base to work for deployed site
+if(location.hostname === 'but-yeah-book-list.github.io') page.base('/book-list-client');
 
 // This is where we define the client-side routes
 page('/', app.Book.fetchAll(app.bookView.initIndexPage));
