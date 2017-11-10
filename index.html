@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/icons.css">
+    <base href=".">
     <title>Hello World</title>
     <script id="book-list-template" type="text/x-handlebars-template">
       <li class="book-item">
@@ -23,7 +24,7 @@
         <h3>{{isbn}}</h3>
         <img src="{{image_url}}">
         <p>{{description}}</p>
-        <a href="{{book_id}}/update">Update Book</a>
+        <a href="books/{{book_id}}/update">Update Book</a>
         <a id="delete-book" href="#">Delete Book</a>
       </li>
     </script>
@@ -38,8 +39,8 @@
         <div class="icon-menu"></div>
         <ul>
           <!-- TODO: show for gh -->
-          <li class="menu-link"><a href="/book-list-client/books/new" >Add a Book</a></li>
-          <li class="menu-link"><a href="/book-list-client/" >Book List</a></li>
+          <li class="menu-link"><a href="books/new" >Add a Book</a></li>
+          <li class="menu-link"><a href="" >Book List</a></li>
         </ul>
       </nav>
     </header>
