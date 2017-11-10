@@ -50,10 +50,10 @@ if(location.hostname !== 'but-yeah-book-list.github.io') __API_URL__ = 'http://l
       .catch(errorCallback);
   };
 
-  Book.fetchAll = callback => {
+  Book.fetchAll = (ctx, next) => {
     $.get(`${__API_URL__}/api/v1/books`)
       .then(Book.loadAll)
-      .then(callback)
+      .then(next)
       .catch(errorCallback);
   };
 

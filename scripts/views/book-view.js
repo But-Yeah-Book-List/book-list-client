@@ -7,10 +7,12 @@ var app = app || {};
 
   bookView.initIndexPage = function() {
     $('.container').hide();
+    $('#book-list').empty();
     $('.book-view').show();
     module.Book.all.forEach(book => $('#book-list').append(book.toHtml('list')));
-    $('.book-view').append(`<section class="book-count"><h3>There are ${module.Book.all.length} books.</h3></section>`);
-    $('.book-view').append(`<section class="about-us"><h3>About Us</h3><p>Seth Donohue and Robert Reed developed this site with love.</p></section>`);
+    $('#num-books').text(`${module.Book.all.length}`);
+    // $('.book-view').append(`<section class="book-count"><h3>There are ${module.Book.all.length} books.</h3></section>`);
+    // $('.book-view').append(`<section class="about-us"><h3>About Us</h3><p>Seth Donohue and Robert Reed developed this site with love.</p></section>`);
   };
 
   bookView.initDetailPage = function(ctx) {
