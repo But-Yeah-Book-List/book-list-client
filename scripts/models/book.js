@@ -19,12 +19,13 @@ var __API_URL__ = 'https://sd-rr-booklist.herokuapp.com';
     return template(this);
   };
 
-  Book.prototype.deleteBook = function() {
+  Book.deleteBook = function(ctxBookId) {
     $.ajax({
-      url: `${__API_URL__}/api/v1/books/${this.book_id}`,
+      url: `${__API_URL__}/api/v1/books/${ctxBookId}`,
       method: 'DELETE'
     })
-      .then(console.log);
+      .then(() => page('/'))
+      .catch(console.error);
   };
 
   Book.all = [];
@@ -33,11 +34,26 @@ var __API_URL__ = 'https://sd-rr-booklist.herokuapp.com';
     Book.all = rows.sort((a,b) => a.title < b.title ? -1 : a.title > b.title ? 1 : 0).map(bookObject => new Book(bookObject));
   };
 
+  Book.updateBook = function(ctxBook, newBookData) {
+    $.ajax({
+      url: `${__API_URL__}/api/v1/books/${ctxBook.book_id}`,
+      method: 'PUT',
+      data: {
+        title: newBookData.title,
+        author: newBookData.author,
+        isbn: newBookData.isbn,
+        image_url: newBookData.image_url,
+        description: newBookData.description
+      }
+    })
+      .then(() => page('/'))
+      .catch(errorCallback);
+  };
+
   Book.fetchAll = callback => {
     $.get(`${__API_URL__}/api/v1/books`)
       .then(Book.loadAll)
       .then(callback)
-      .then(module.bookView.fixLinks)
       .catch(errorCallback);
   };
 
@@ -50,14 +66,7 @@ var __API_URL__ = 'https://sd-rr-booklist.herokuapp.com';
 
   Book.createBookHandler = function(e) {
     e.preventDefault();
-    let book = {
-      title: e.target.title.value,
-      author: e.target.author.value,
-      isbn: e.target.isbn.value,
-      image_url: e.target.image_url.value,
-      description: e.target.description.value,
-    }
-    Book.addNewBook(book);
+    Book.addNewBook(Book.getFormData(e));
   };
 
   Book.addNewBook = function(book) {
@@ -66,11 +75,19 @@ var __API_URL__ = 'https://sd-rr-booklist.herokuapp.com';
       .catch(errorCallback);
   };
 
+  Book.getFormData = function(e) {
+    let book ={
+      title: e.target.title.value,
+      author: e.target.author.value,
+      isbn: e.target.isbn.value,
+      image_url: e.target.image_url.value,
+      description: e.target.description.value,
+    }
+    return book;
+  }
+
   //jQuery for Icon Menu
-  $('.icon-menu').click(function() {
-    console.log('clicking');
-    $('.menu-link').toggle();
-  });
+  $('.icon-menu').on('click', () => $('.menu-link').toggle());
 
   module.Book = Book;
 })(app);
