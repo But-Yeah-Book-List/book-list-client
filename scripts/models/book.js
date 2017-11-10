@@ -34,9 +34,9 @@ if(location.hostname !== 'but-yeah-book-list.github.io') __API_URL__ = 'http://l
     Book.all = rows.sort((a,b) => a.title < b.title ? -1 : a.title > b.title ? 1 : 0).map(bookObject => new Book(bookObject));
   };
 
-  Book.updateBook = function(ctxBook, newBookData) {
+  Book.updateBook = function(ctx, newBookData) {
     $.ajax({
-      url: `${__API_URL__}/api/v1/books/${ctxBook.book_id}`,
+      url: `${__API_URL__}/api/v1/books/${ctx.params.book_id}`,
       method: 'PUT',
       data: {
         title: newBookData.title,
@@ -57,10 +57,10 @@ if(location.hostname !== 'but-yeah-book-list.github.io') __API_URL__ = 'http://l
       .catch(errorCallback);
   };
 
-  Book.fetchOne = (ctx, callback) => {
+  Book.fetchOne = (ctx, next) => {
     $.get(`${__API_URL__}/api/v1/books/${ctx.params.book_id}`)
       .then(results => ctx.book = results[0])
-      .then(callback)
+      .then(next)
       .catch(errorCallback);
   }
 

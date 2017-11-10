@@ -13,29 +13,34 @@ var app = app || {};
     $('.book-view').append(`<section class="about-us"><h3>About Us</h3><p>Seth Donohue and Robert Reed developed this site with love.</p></section>`);
   };
 
-  bookView.initDetailPage = function(ctxBook) {
+  bookView.initDetailPage = function(ctx) {
     $('.container').hide();
-    let book = new module.Book(ctxBook);
+    let book = new module.Book(ctx.book);
     $('#book-detail').empty().append(book.toHtml('detail'));
     $('.book-detail').show();
+
+    // verify function
+    // If verify true
+    // shgow buyttobs
+
     $('#delete-book').on('click', () => {
-      module.Book.deleteBook(ctxBook.book_id);
+      module.Book.deleteBook(ctx.params.book_id);
     });
   };
 
-  bookView.initUpdateFormPage = function(ctxBook) {
+  bookView.initUpdateFormPage = function(ctx) {
     $('.container').hide();
     $('#new-book button').text('Update Book');
     $('.create-view').show();
-    $('#title-form').val(ctxBook.title);
-    $('#author-form').val(ctxBook.author);
-    $('#isbn-form').val(ctxBook.isbn);
-    $('#image_url-form').val(ctxBook.image_url);
-    $('#description-form').val(ctxBook.description);
+    $('#title-form').val(ctx.book.title);
+    $('#author-form').val(ctx.book.author);
+    $('#isbn-form').val(ctx.book.isbn);
+    $('#image_url-form').val(ctx.book.image_url);
+    $('#description-form').val(ctx.book.description);
     $('#new-book').off();
     $('#new-book').on('submit', (e) => {
       e.preventDefault();
-      module.Book.updateBook(ctxBook, module.Book.getFormData(e));
+      module.Book.updateBook(ctx, module.Book.getFormData(e));
     });
   };
 
