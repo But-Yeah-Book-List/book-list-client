@@ -8,8 +8,10 @@
     <title>Hello World</title>
     <script id="book-list-template" type="text/x-handlebars-template">
       <li class="book-item">
-        <h2>{{title}}</h2>
-        <h3>{{author}}</h3>
+        <div>
+          <h2>{{title}}</h2>
+          <h3>{{author}}</h3>
+        </div>  
         <img src="{{image_url}}">
         <!-- TODO: hide  below for local -->
         <a class="book-detail-link" href="/book-list-client/books/{{book_id}}">View Details</a>
@@ -33,17 +35,17 @@
   <body>
     <header>
       <h1>Books!</h1>
+      <nav class="main-nav">
+        <div class="icon-menu"></div>
+        <ul>
+          <!-- TODO: hide below for local -->
+          <li class="menu-link"><a href="/book-list-client/books/new" >Add a Book</a></li>
+          <!-- TODO: hide below for deployment -->
+          <!-- <li class="menu-link"><a href="/books/new" >Add a Book</a></li> -->
+          <li class="menu-link"><a href="/" >Book List</a></li>
+        </ul>
+      </nav>
     </header>
-    <nav class="main-nav">
-      <div class="icon-menu"></div>
-      <ul>
-        <!-- TODO: hide below for local -->
-        <li class="menu-link"><a href="/book-list-client/books/new" >Add a Book</a></li>
-        <!-- TODO: hide below for deployment -->
-        <!-- <li class="menu-link"><a href="/books/new" >Add a Book</a></li> -->
-        <li class="menu-link"><a href="/" >Book List</a></li>
-      </ul>
-    </nav>
 
     </div>
     <main>

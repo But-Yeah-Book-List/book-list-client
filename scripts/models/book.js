@@ -67,10 +67,7 @@ var __API_URL__ = 'http://localhost:3000';
   };
 
   //jQuery for Icon Menu
-  $('.icon-menu').click(function() {
-    console.log('clicking');
-    $('.menu-link').toggle();
-  });
+  $('.icon-menu').on('click', () => $('.menu-link').toggle());
 
   module.Book = Book;
 })(app);
