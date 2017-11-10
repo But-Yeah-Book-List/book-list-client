@@ -34,22 +34,23 @@ var __API_URL__ = 'http://localhost:3000';
     Book.all = rows.sort((a,b) => a.title < b.title ? -1 : a.title > b.title ? 1 : 0).map(bookObject => new Book(bookObject));
   };
 
-  // TODO: COME BACK AND FIX.
-  // Book.prototype.updateBook = function() {
-  //   $.ajax({
-  //     url: `${__API_URL__}/api/v1/books/${this.book_id}`,
-  //     method: 'PUT',
-  //     data: {
-  //       title: this.title,
-  //       author: this.author,
-  //       isbn: this.isbn,
-  //       image_url: this.image_url,
-  //       description: this.description
-  //     }
-  //   })
-  //     .then(console.log)
-  //     .catch(errorCallback);
-  // };
+  Book.updateBook = function(ctxBook, newBookData) {
+    console.log('CTX', ctxBook);
+    console.log('new Book', newBookData);
+    $.ajax({
+      url: `${__API_URL__}/api/v1/books/${ctxBook.book_id}`,
+      method: 'PUT',
+      data: {
+        title: newBookData.title,
+        author: newBookData.author,
+        isbn: newBookData.isbn,
+        image_url: newBookData.image_url,
+        description: newBookData.description
+      }
+    })
+      .then(() => page('/'))
+      .catch(errorCallback);
+  };
 
   Book.fetchAll = callback => {
     $.get(`${__API_URL__}/api/v1/books`)
@@ -67,21 +68,30 @@ var __API_URL__ = 'http://localhost:3000';
 
   Book.createBookHandler = function(e) {
     e.preventDefault();
-    let book = {
-      title: e.target.title.value,
-      author: e.target.author.value,
-      isbn: e.target.isbn.value,
-      image_url: e.target.image_url.value,
-      description: e.target.description.value,
-    }
-    Book.addNewBook(book);
+    Book.addNewBook(Book.getFormData(e));
   };
+
+  // Book.updateBookHandler = function(e) {
+  //   e.preventDefault();
+  //   Book.updateBook(Book.getFormData(e));
+  // };
 
   Book.addNewBook = function(book) {
     $.post(`${__API_URL__}/api/v1/books`, book)
       .then(() => page('/'))
       .catch(errorCallback);
   };
+
+  Book.getFormData = function(e) {
+    let book ={
+      title: e.target.title.value,
+      author: e.target.author.value,
+      isbn: e.target.isbn.value,
+      image_url: e.target.image_url.value,
+      description: e.target.description.value,
+    }
+    return book;
+  }
 
   //jQuery for Icon Menu
   $('.icon-menu').on('click', () => $('.menu-link').toggle());

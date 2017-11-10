@@ -25,18 +25,25 @@ var app = app || {};
 
   bookView.initUpdateFormPage = function(ctxBook) {
     $('.container').hide();
+    $('#new-book button').text('Update Book');
     $('.create-view').show();
     $('#title-form').val(ctxBook.title);
     $('#author-form').val(ctxBook.author);
     $('#isbn-form').val(ctxBook.isbn);
     $('#image_url-form').val(ctxBook.image_url);
     $('#description-form').val(ctxBook.description);
+    $('#new-book').off();
+    $('#new-book').on('submit', (e) => {
+      e.preventDefault();
+      module.Book.updateBook(ctxBook, module.Book.getFormData(e));
+    });
   };
 
   bookView.initFormPage = function() {
     $('.container').hide();
     $('#new-book').trigger('reset');
     $('.create-view').show();
+    $('#new-book').off();
     $('#new-book').on('submit', module.Book.createBookHandler);
   }
 
