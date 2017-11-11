@@ -5,22 +5,25 @@ var app = app || {};
 (function(module) {
   const adminView = {};
 
-  adminView.initAdminPage = function(ctx, next) {
+  adminView.initAdminPage = function(ctx) {
 
     //needs to show/initialize the passphrase form
     $('.container').hide();
     $('.admin-view').show();
-    $('#admin-message').empty();
-    let template = Handlebars.compile($('#admin-template').text());
-    $('#admin-message').append(template(err));
-    next();
+    $('admin-form').on('submit', (e) => {
+      let token = e.target.password.value;
+      adminView.verify(token);
+    });
+
+    // next();
   };
 
-  adminView.verify = function() {
-    //needs to check passphrase and then open up rest of book editing
-      // jquery to grab passphrase
-
-    //hides delete button unless passed verification
+  adminView.verify = function(token) {
+    $.get(`${module.__API_URL__}/api/v1/admin`, {token})
+      .then(results => {
+        let correct = JSON.parse(results);
+        console.log(results, correct);
+      });
   }
 
   module.adminView = adminView;

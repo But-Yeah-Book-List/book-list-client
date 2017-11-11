@@ -40,6 +40,7 @@
         <ul>
           <li class="menu-link"><a href="books/new" >Add a Book</a></li>
           <li class="menu-link"><a href="" >Book List</a></li>
+          <li class="menu-link"><a href="admin" >Admin Login</a></li>
         </ul>
       </nav>
     </header>
@@ -76,6 +77,13 @@
         </form>
       </section>
 
+      <section class="admin-view container">
+        <form id="admin-form">
+          <input id="password" type="text" placeholder="Password Here" required>
+          <button type="submit" name="submit">Verify Password</button>
+        </form>
+      </section>
+
       <section class="fetching-data container">
         <h3>Curating your book list...</h3>
         <p>One moment please</p>
@@ -87,9 +95,9 @@
   crossorigin="anonymous"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
   <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
-  <script type="text/javascript" src="scripts/models/book.js">
-  </script>
+  <script type="text/javascript" src="scripts/models/book.js"></script>
   <script type="text/javascript" src="scripts/views/book-view.js"></script>
+  <script type="text/javascript" src="scripts/views/admin-view.js"></script>
   <script type="text/javascript" src="scripts/views/error-view.js"></script>
   <script type="text/javascript" src="scripts/controller/routes.js"></script>
   </body>

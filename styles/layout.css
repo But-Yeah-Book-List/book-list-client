@@ -29,10 +29,10 @@ header {
   padding: 5% 0px;
 }
 
-#book-list-image {
+.book-list-image {
   max-width: 300px;
 }
 
-#book-detail-image {
+.book-detail-image {
   max-width: 480px;
 }
