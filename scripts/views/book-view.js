@@ -6,6 +6,7 @@ var app = app || {};
   const bookView = {};
 
   $('.container').hide();
+  $('.fetching-data').show();
 
   bookView.initIndexPage = function() {
     $('.container').hide();
