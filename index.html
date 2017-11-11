@@ -86,24 +86,42 @@
       <section class="create-view container">
         <h2>Add a New Book</h2>
         <form id="new-book">
-          <input id="title-form" type="text" name="title" placeholder="title" required />
-          <input id="author-form" type="text" name="author" placeholder="author" required />
-          <input id="isbn-form" type="text" name="isbn" placeholder="isbn" required />
-          <input id="image_url-form" type="text" name="image_url" placeholder="image url" required />
-          <textarea id="description-form" name="description" rows="10" cols="30" placeholder="description..." required></textarea>
+          <label>
+            Title
+            <input id="title-form" type="text" name="title" placeholder="title" required />
+          </label>
+          <label>
+            Author
+            <input id="author-form" type="text" name="author" placeholder="author" required />
+          </label>
+          <label>
+            ISBN
+            <input id="isbn-form" type="text" name="isbn" placeholder="isbn" required />
+          </label>
+          <label>
+            Image URL
+            <input id="image_url-form" type="text" name="image_url" placeholder="image url" required />
+          </label>
+          <label>
+            Description
+            <textarea id="description-form" name="description" rows="10" cols="30" placeholder="description..." required></textarea>
+          </label>
           <button type="submit" name="submit">Add Book</button>
         </form>
       </section>
 
       <section class="admin-view container">
         <form id="admin-form">
-          <input id="password" type="password" placeholder="Password Here" required>
+          <label>
+            Password
+            <input id="password" type="password" placeholder="Type your password" required>
+          </label>
           <button type="submit" name="submit">Verify Password</button>
         </form>
       </section>
 
       <section class="fetching-data container">
-        <h3>Curating your book list...</h3>
+        <h2>Curating your book list...</h2>
         <p>One moment please.</p>
       </section>
     </main>
