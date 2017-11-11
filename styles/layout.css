@@ -32,9 +32,8 @@ main {
   margin: 0px 10px 5px 10px;
 }
 
-.container {
-  position:
-  /*top: 150px;*/
+#new-book input {
+  display: block;
 }
 
 .icon-menu {
