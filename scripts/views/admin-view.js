@@ -5,12 +5,13 @@ var app = app || {};
 (function(module) {
   const adminView = {};
 
-  adminView.initAdminPage = function(ctx) {
+  adminView.initAdminPage = function() {
 
     //needs to show/initialize the passphrase form
     $('.container').hide();
     $('.admin-view').show();
-    $('admin-form').on('submit', (e) => {
+    $('#admin-form').on('submit', (e) => {
+      e.preventDefault();
       let token = e.target.password.value;
       adminView.verify(token);
     });
@@ -19,10 +20,15 @@ var app = app || {};
   };
 
   adminView.verify = function(token) {
-    $.get(`${module.__API_URL__}/api/v1/admin`, {token})
+    $.get(`${module.__API_URL__}/admin`, {token})
       .then(results => {
         let correct = JSON.parse(results);
-        console.log(results, correct);
+        if(correct) {
+          alert('Password Correct!');
+          page('/');
+        } else {
+          alert('Incorrect Password!');
+        }
       });
   }
 

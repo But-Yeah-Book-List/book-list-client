@@ -5,6 +5,7 @@ var app = app || {};
 (function(module) {
   var __API_URL__ = 'https://sd-rr-booklist.herokuapp.com';
   if(location.hostname !== 'but-yeah-book-list.github.io') __API_URL__ = 'http://localhost:3000';
+  console.log(__API_URL__);
 
   function Book(bookObject) {
     Object.keys(bookObject).forEach(key => this[key] = bookObject[key]);
@@ -91,4 +92,5 @@ var app = app || {};
   $('.icon-menu').on('click', () => $('.menu-link').toggle());
 
   module.Book = Book;
+  module.__API_URL__ = __API_URL__;
 })(app);
