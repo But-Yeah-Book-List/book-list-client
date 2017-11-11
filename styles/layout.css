@@ -1,19 +1,48 @@
-main, header {
+body {
+  max-width: 600px;
   margin: 0 auto;
-  max-width: 480px;
   background: red;
 }
 
+.max {
+  max-width: 600px;
+}
 header {
-  position: relative;
+  top: 0;
+  position: fixed;
+  width: 100%;
+  max-width: 600px;
   min-height: 60px;
+  margin: 0 auto;
+  z-index: 1;
+  background-color: #b3b3b3;
+}
+
+nav {
+  /*position: relative;*/
+  /*float: right;*/
+}
+
+main {
+  position: relative;
+  top: 100px;
+}
+
+.main-nav li {
+  margin: 0px 10px 5px 10px;
+}
+
+.container {
+  position:
+  /*top: 150px;*/
 }
 
 .icon-menu {
   display: inline;
+  float: right;
   position: absolute;
-  top: 1vh;
-  right: 3vw;
+  top: 0.5vh;
+  right: 0.5vw;
   font-size: 300%;
 }
 

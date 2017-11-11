@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/modules/book-main.css">
+    <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/icons.css">
     <base href=".">
     <title>Hello World</title>
@@ -33,72 +34,72 @@
     </script>
   </head>
   <body>
-    <header>
-      <h1>Books!</h1>
-      <nav class="main-nav">
+      <header>
+        <h1>Books!</h1>
         <div class="icon-menu"></div>
-        <ul>
-          <li class="menu-link"><a href="books/new" >Add a Book</a></li>
-          <li class="menu-link"><a href="" >Book List</a></li>
-          <li class="menu-link" id="admin-login-link"><a href="admin" >Admin Login</a></li>
-        </ul>
-      </nav>
-    </header>
-    <main>
-      <section class="error-view container">
-        <h3>Something went terribly wrong.</h3>
-        <section id="error-message"></section>
-      </section>
-
-      <section class="book-view container">
-        <h3>My Boooooooks!</h3>
-        <ul id="book-list"></ul>
-        <h3>There are <span id="num-books">0</span> books in the collection.</h3>
-        <section class="about-us">
-          <h3>About Us</h3>
-          <p>Seth Donohue and Robert Reed developed this site with love.</p>
+        <nav class="main-nav">
+          <ul>
+            <li class="menu-link"><a href="books/new" >Add a Book</a></li>
+            <li class="menu-link"><a href="" >Book List</a></li>
+            <li class="menu-link" id="admin-login-link"><a href="admin" >Admin Login</a></li>
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <section class="error-view container">
+          <h3>Something went terribly wrong.</h3>
+          <section id="error-message"></section>
         </section>
-      </section>
 
-      <section class="book-detail container">
-        <h3>My BOOOK!</h3>
-        <ul id="book-detail"></ul>
-      </section>
+        <section class="book-view container">
+          <h3>My Boooooooks!</h3>
+          <ul id="book-list"></ul>
+          <h3>There are <span id="num-books">0</span> books in the collection.</h3>
+          <section class="about-us">
+            <h3>About Us</h3>
+            <p>Seth Donohue and Robert Reed developed this site with love.</p>
+          </section>
+        </section>
 
-      <section class="create-view container">
-        <h3>Add a new book</h3>
-        <form id="new-book">
-          <input id="title-form" type="text" name="title" placeholder="title" required />
-          <input id="author-form" type="text" name="author" placeholder="author" required />
-          <input id="isbn-form" type="text" name="isbn" placeholder="isbn" required />
-          <input id="image_url-form" type="text" name="image_url" placeholder="image url" required />
-          <textarea id="description-form" name="description" rows="10" cols="30" placeholder="description..." required></textarea>
-          <button type="submit" name="submit">Add New Book</button>
-        </form>
-      </section>
+        <section class="book-detail container">
+          <h3>My BOOOK!</h3>
+          <ul id="book-detail"></ul>
+        </section>
 
-      <section class="admin-view container">
-        <form id="admin-form">
-          <input id="password" type="password" placeholder="Password Here" required>
-          <button type="submit" name="submit">Verify Password</button>
-        </form>
-      </section>
+        <section class="create-view container">
+          <h3>Add a new book</h3>
+          <form id="new-book">
+            <input id="title-form" type="text" name="title" placeholder="title" required />
+            <input id="author-form" type="text" name="author" placeholder="author" required />
+            <input id="isbn-form" type="text" name="isbn" placeholder="isbn" required />
+            <input id="image_url-form" type="text" name="image_url" placeholder="image url" required />
+            <textarea id="description-form" name="description" rows="10" cols="30" placeholder="description..." required></textarea>
+            <button type="submit" name="submit">Add New Book</button>
+          </form>
+        </section>
 
-      <section class="fetching-data container">
-        <h3>Curating your book list...</h3>
-        <p>One moment please</p>
-      </section>
-    </main>
+        <section class="admin-view container">
+          <form id="admin-form">
+            <input id="password" type="password" placeholder="Password Here" required>
+            <button type="submit" name="submit">Verify Password</button>
+          </form>
+        </section>
+
+        <section class="fetching-data container">
+          <h3>Curating your book list...</h3>
+          <p>One moment please</p>
+        </section>
+      </main>
     <script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
-  <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
-  <script type="text/javascript" src="scripts/models/book.js"></script>
-  <script type="text/javascript" src="scripts/views/book-view.js"></script>
-  <script type="text/javascript" src="scripts/views/admin-view.js"></script>
-  <script type="text/javascript" src="scripts/views/error-view.js"></script>
-  <script type="text/javascript" src="scripts/controller/routes.js"></script>
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+    <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
+    <script type="text/javascript" src="scripts/models/book.js"></script>
+    <script type="text/javascript" src="scripts/views/book-view.js"></script>
+    <script type="text/javascript" src="scripts/views/admin-view.js"></script>
+    <script type="text/javascript" src="scripts/views/error-view.js"></script>
+    <script type="text/javascript" src="scripts/controller/routes.js"></script>
   </body>
 </html>
