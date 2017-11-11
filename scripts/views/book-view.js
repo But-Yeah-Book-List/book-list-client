@@ -20,6 +20,7 @@ var app = app || {};
     $('.container').hide();
     let book = new module.Book(ctx.book);
     $('#book-detail').empty().append(book.toHtml('detail'));
+    localStorage.isAdmin ? $('.admin-only').show() : $('.admin-only').hide();
     $('.book-detail').show();
     $('#delete-book').on('click', () => {
       module.Book.deleteBook(ctx.params.book_id);
