@@ -30,10 +30,16 @@ var app = app || {};
       });
   }
 
-  adminView.setAdmin = function() {
+  adminView.setAdmin = function(ctx) {
     localStorage.isAdmin = true;
-    $('#admin-login-link').remove();
-    page('/');
+    $('#admin-login-link a').text('Admin Logout').on('click', (e) => {
+      e.preventDefault();
+      alert('You have successfully logged out.');
+      $('.admin-only').hide();
+      delete localStorage.isAdmin;
+      $('#admin-login-link a').text('Admin Login').off();
+    });
+    ctx.params.book_id ? page(`/books/${ctx.params.book_id}`) : page('/');
   }
 
   module.adminView = adminView;

@@ -3,77 +3,95 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="But Yeah Book List" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="but-yeah-book-list.github.io/book-list-client/" />
+    <meta property="og:image" content="https://dgosxlrnzhofi.cloudfront.net/assets/dev-icons-cf-a1adb87c240970eb531b2b276c642aed.png" />
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/icons.css">
     <base href=".">
-    <title>Hello World</title>
+    <title>But Yeah Book List</title>
     <script id="book-list-template" type="text/x-handlebars-template">
       <li class="book-item">
         <div>
-          <h2>{{title}}</h2>
-          <h3>{{author}}</h3>
+          <h3>{{title}}</h3>
+          <h4>{{author}}</h4>
         </div>
         <img src="{{image_url}}">
-        <a class="book-detail-link" href="books/{{book_id}}">View Details</a>
+        <a class="book-detail-link" href="books/{{book_id}}">View Book Details</a>
       </li>
     </script>
     <script id="book-detail-template" type="text/x-handlebars-template">
       <li class="book-item">
-        <h2>{{title}}</h2>
-        <h3>{{author}}</h3>
-        <h3>{{isbn}}</h3>
+        <h3>{{title}}</h3>
+        <h4>{{author}}</h4>
+        <h5>{{isbn}}</h5>
         <img  class="book-detail-image" src="{{image_url}}">
         <p>{{description}}</p>
-        <a class="admin-only" href="books/{{book_id}}/update">Update Book</a>
-        <a class="admin-only" id="delete-book" href="#">Delete Book</a>
+        <a class="admin-only" href="books/{{book_id}}/update">Update Book Details</a>
+        <a class="admin-only" id="delete-book" href="#">Remove Book</a>
       </li>
     </script>
     <script id="error-template" type="text/x-handlebars-template">
-      <p>{{status}}: {{statusText}}</p>
+      <ul>
+        <li>If you are seeing this error, our server probably isn't running. Check back in a bit, or share this error code with the nearest network administrator.</li>
+        <li>Status Code: {{status}}</li>
+        <li>Status Message: {{statusText}}</li>
+      </ul>
     </script>
   </head>
   <body>
     <header>
-      <h1>Books!</h1>
+      <h1>But Yeah Books List</h1>
+      <div class="icon-menu"></div>
       <nav class="main-nav">
-        <div class="icon-menu"></div>
         <ul>
-          <li class="menu-link"><a href="books/new" >Add a Book</a></li>
           <li class="menu-link"><a href="" >Book List</a></li>
+          <li class="menu-link"><a href="books/new">Add a Book</a></li>
+          <li class="menu-link"><a href="about">About Us</a></li>
           <li class="menu-link" id="admin-login-link"><a href="admin" >Admin Login</a></li>
         </ul>
       </nav>
     </header>
     <main>
       <section class="error-view container">
-        <h3>Something went terribly wrong.</h3>
+        <h2>Something went terribly wrong.</h2>
         <section id="error-message"></section>
       </section>
 
       <section class="book-view container">
-        <h3>My Boooooooks!</h3>
-        <ul id="book-list"></ul>
+        <h2>My Books</h2>
         <h3>There are <span id="num-books">0</span> books in the collection.</h3>
-        <section class="about-us">
-          <h3>About Us</h3>
-          <p>Seth Donohue and Robert Reed developed this site with love.</p>
-        </section>
+        <ul id="book-list"></ul>
+      </section>
+
+      <section class="about-us container">
+        <h2>About Us</h2>
+        <ul>
+          <li>
+            <h3>Seth Donohue</h3>
+            <p>Seth is an avid traveler. When he's not hacking up killer code, you can find him hitting the waves in Papau New Guinea.</p>
+          </li>
+          <li>
+            <h3>Robert Reed</h3>
+            <p>Robert loves riding motorcycle trials. When he's not hacking up killer code, you can find him hitting the trails in the forests around Washington.</p>
+          </li>
+        </ul>
       </section>
 
       <section class="book-detail container">
-        <h3>My BOOOK!</h3>
         <ul id="book-detail"></ul>
       </section>
 
       <section class="create-view container">
-        <h3>Add a new book</h3>
+        <h2>Add a New Book</h2>
         <form id="new-book">
           <input id="title-form" type="text" name="title" placeholder="title" required />
           <input id="author-form" type="text" name="author" placeholder="author" required />
           <input id="isbn-form" type="text" name="isbn" placeholder="isbn" required />
           <input id="image_url-form" type="text" name="image_url" placeholder="image url" required />
           <textarea id="description-form" name="description" rows="10" cols="30" placeholder="description..." required></textarea>
-          <button type="submit" name="submit">Add New Book</button>
+          <button type="submit" name="submit">Add Book</button>
         </form>
       </section>
 
@@ -86,19 +104,19 @@
 
       <section class="fetching-data container">
         <h3>Curating your book list...</h3>
-        <p>One moment please</p>
+        <p>One moment please.</p>
       </section>
     </main>
     <script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
-  <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
-  <script type="text/javascript" src="scripts/models/book.js"></script>
-  <script type="text/javascript" src="scripts/views/book-view.js"></script>
-  <script type="text/javascript" src="scripts/views/admin-view.js"></script>
-  <script type="text/javascript" src="scripts/views/error-view.js"></script>
-  <script type="text/javascript" src="scripts/controller/routes.js"></script>
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+    <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
+    <script type="text/javascript" src="scripts/models/book.js"></script>
+    <script type="text/javascript" src="scripts/views/book-view.js"></script>
+    <script type="text/javascript" src="scripts/views/admin-view.js"></script>
+    <script type="text/javascript" src="scripts/views/error-view.js"></script>
+    <script type="text/javascript" src="scripts/controller/routes.js"></script>
   </body>
 </html>

@@ -14,6 +14,8 @@ var app = app || {};
     $('.book-view').show();
     module.Book.all.forEach(book => $('#book-list').append(book.toHtml('list')));
     $('#num-books').text(`${module.Book.all.length}`);
+    $('#admin-login-link a').attr('href', 'admin');
+
   };
 
   bookView.initDetailPage = function(ctx) {
@@ -25,6 +27,7 @@ var app = app || {};
     $('#delete-book').on('click', () => {
       module.Book.deleteBook(ctx.params.book_id);
     });
+    $('#admin-login-link a').attr('href', `admin/${ctx.params.book_id}`);
   };
 
   bookView.initUpdateFormPage = function(ctx) {

@@ -3,8 +3,8 @@
 var app = app || {};
 
 (function(module) {
-  var __API_URL__ = 'https://sd-rr-booklist.herokuapp.com';
-  if(location.hostname !== 'but-yeah-book-list.github.io') __API_URL__ = 'http://localhost:3000';
+  module.__API_URL__ = 'https://sd-rr-booklist.herokuapp.com';
+  if(location.hostname !== 'but-yeah-book-list.github.io') module.__API_URL__ = 'http://localhost:3000';
 
   function Book(bookObject) {
     Object.keys(bookObject).forEach(key => this[key] = bookObject[key]);
@@ -22,7 +22,7 @@ var app = app || {};
 
   Book.deleteBook = function(ctxBookId) {
     $.ajax({
-      url: `${__API_URL__}/api/v1/books/${ctxBookId}`,
+      url: `${module.__API_URL__}/api/v1/books/${ctxBookId}`,
       method: 'DELETE'
     })
       .then(() => page('/'))
@@ -37,7 +37,7 @@ var app = app || {};
 
   Book.updateBook = function(ctx, newBookData) {
     $.ajax({
-      url: `${__API_URL__}/api/v1/books/${ctx.params.book_id}`,
+      url: `${module.__API_URL__}/api/v1/books/${ctx.params.book_id}`,
       method: 'PUT',
       data: {
         title: newBookData.title,
@@ -52,14 +52,14 @@ var app = app || {};
   };
 
   Book.fetchAll = (ctx, next) => {
-    $.get(`${__API_URL__}/api/v1/books`)
+    $.get(`${module.__API_URL__}/api/v1/books`)
       .then(Book.loadAll)
       .then(next)
       .catch(errorCallback);
   };
 
   Book.fetchOne = (ctx, next) => {
-    $.get(`${__API_URL__}/api/v1/books/${ctx.params.book_id}`)
+    $.get(`${module.__API_URL__}/api/v1/books/${ctx.params.book_id}`)
       .then(results => ctx.book = results[0])
       .then(next)
       .catch(errorCallback);
@@ -71,7 +71,7 @@ var app = app || {};
   };
 
   Book.addNewBook = function(book) {
-    $.post(`${__API_URL__}/api/v1/books`, book)
+    $.post(`${module.__API_URL__}/api/v1/books`, book)
       .then(() => page('/'))
       .catch(errorCallback);
   };
@@ -91,5 +91,4 @@ var app = app || {};
   $('.icon-menu').on('click', () => $('.menu-link').toggle());
 
   module.Book = Book;
-  module.__API_URL__ = __API_URL__;
 })(app);
