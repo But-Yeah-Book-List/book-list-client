@@ -5,14 +5,14 @@ var app = app || {};
 (function(module){
   const bookView = {};
 
+  $('.container').hide();
+
   bookView.initIndexPage = function() {
     $('.container').hide();
     $('#book-list').empty();
     $('.book-view').show();
     module.Book.all.forEach(book => $('#book-list').append(book.toHtml('list')));
     $('#num-books').text(`${module.Book.all.length}`);
-    // $('.book-view').append(`<section class="book-count"><h3>There are ${module.Book.all.length} books.</h3></section>`);
-    // $('.book-view').append(`<section class="about-us"><h3>About Us</h3><p>Seth Donohue and Robert Reed developed this site with love.</p></section>`);
   };
 
   bookView.initDetailPage = function(ctx) {
@@ -20,11 +20,6 @@ var app = app || {};
     let book = new module.Book(ctx.book);
     $('#book-detail').empty().append(book.toHtml('detail'));
     $('.book-detail').show();
-
-    // verify function
-    // If verify true
-    // shgow buyttobs
-
     $('#delete-book').on('click', () => {
       module.Book.deleteBook(ctx.params.book_id);
     });
