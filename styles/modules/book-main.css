@@ -52,7 +52,8 @@ p {
 }
 
 .container a {
-  margin: 1%;
+  margin: 10%;
+  border: white 3px;
 }
 
 textarea {
