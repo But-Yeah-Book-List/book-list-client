@@ -16,6 +16,8 @@ Connect your server repo to heroku
 - cors
 - pg
 - heroku
+- fs
+- body-parser
 
 ## Change Log
 ### 11/7/17
