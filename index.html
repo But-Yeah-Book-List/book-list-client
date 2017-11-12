@@ -7,7 +7,8 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="but-yeah-book-list.github.io/book-list-client/" />
     <meta property="og:image" content="https://dgosxlrnzhofi.cloudfront.net/assets/dev-icons-cf-a1adb87c240970eb531b2b276c642aed.png" />
-    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/modules/book-main.css">
+    <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/icons.css">
     <base href=".">
     <title>But Yeah Book List</title>
@@ -60,8 +61,10 @@
       </section>
 
       <section class="book-view container">
-        <h2>My Books</h2>
-        <h3>There are <span id="num-books">0</span> books in the collection.</h3>
+        <div>
+          <h2>My Books</h2>
+          <h3>There are <span id="num-books">0</span> books in the collection.</h3>
+        </div>
         <ul id="book-list"></ul>
       </section>
 
@@ -86,27 +89,33 @@
       <section class="create-view container">
         <h2>Add a New Book</h2>
         <form id="new-book">
-          <label>
-            Title
-            <input id="title-form" type="text" name="title" placeholder="title" required />
-          </label>
-          <label>
-            Author
-            <input id="author-form" type="text" name="author" placeholder="author" required />
-          </label>
-          <label>
-            ISBN
-            <input id="isbn-form" type="text" name="isbn" placeholder="isbn" required />
-          </label>
-          <label>
-            Image URL
-            <input id="image_url-form" type="text" name="image_url" placeholder="image url" required />
-          </label>
-          <label>
-            Description
-            <textarea id="description-form" name="description" rows="10" cols="30" placeholder="description..." required></textarea>
-          </label>
-          <button type="submit" name="submit">Add Book</button>
+          <table>
+            <tr>
+              <th><label for="title-form">Title</label></th>
+              <td><input id="title-form" type="text" name="title" placeholder="title" required /></td>
+            </tr>
+            <tr>
+              <th><label for="title-form">Author</label></th>
+              <td><input id="author-form" type="text" name="author" placeholder="author" required /></td>
+            </tr>
+            <tr>
+              <th><label for="title-form">ISBN</label></th>
+              <td><input id="isbn-form" type="text" name="isbn" placeholder="isbn" maxlength="21" required /></td>
+            </tr>
+            <tr>
+              <th><label for="title-form">Image URL</label></th>
+              <td><input id="image_url-form" type="text" name="image_url" placeholder="image url" required /></td>
+            </tr>
+            <tr>
+              <th><label for="title-form">Description</label></th>
+              <td><textarea id="description-form" name="description" rows="10" cols="30" placeholder="description..." required></textarea></td>
+            </tr>
+            <tr>
+              <th></th>
+              <td><button type="submit" name="submit">Add Book</button></td>
+            </tr>
+          </table>
+
         </form>
       </section>
 
