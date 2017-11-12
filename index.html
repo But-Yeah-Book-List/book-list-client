@@ -61,8 +61,10 @@
       </section>
 
       <section class="book-view container">
-        <h2>My Books</h2>
-        <h3>There are <span id="num-books">0</span> books in the collection.</h3>
+        <div>
+          <h2>My Books</h2>
+          <h3>There are <span id="num-books">0</span> books in the collection.</h3>
+        </div>
         <ul id="book-list"></ul>
       </section>
 
@@ -90,7 +92,7 @@
           <table>
             <tr>
               <th><label for="title-form">Title</label></th>
-              <td><input id="title-form" type="text" name="title-form" placeholder="title" required /></td>
+              <td><input id="title-form" type="text" name="title" placeholder="title" required /></td>
             </tr>
             <tr>
               <th><label for="title-form">Author</label></th>
@@ -98,7 +100,7 @@
             </tr>
             <tr>
               <th><label for="title-form">ISBN</label></th>
-              <td><input id="isbn-form" type="text" name="isbn" placeholder="isbn" required /></td>
+              <td><input id="isbn-form" type="text" name="isbn" placeholder="isbn" maxlength="21" required /></td>
             </tr>
             <tr>
               <th><label for="title-form">Image URL</label></th>

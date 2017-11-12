@@ -30,6 +30,12 @@ h3 {
   padding-top: 2%;
 }
 
+h4 {
+  text-align: center;
+  font-size: 100%;
+  margin-bottom: 2%;
+}
+
 .main-nav li{
   display: none;
 }
@@ -37,6 +43,16 @@ h3 {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+p {
+  margin: 1%;
+  text-align: left;
+  text-indent: 20px;
+}
+
+.container a {
+  margin: 1%;
 }
 
 textarea {
