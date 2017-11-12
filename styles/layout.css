@@ -1,112 +1,14 @@
 
+@media only screen and (max-width: 435px) {
 
-body {
-  max-width: 600px;
-  margin: 0 auto;
-  background: #862C2C;
+  .main-nav li {
+    display: block;
+  }
+
+  main {
+    margin-top: 165px;
+  }
 }
-
-
-
-.max {
-  max-width: 600px;
-}
-header {
-  top: 0;
-  position: fixed;
-  width: 100%;
-  max-width: 600px;
-  min-height: 60px;
-  margin: 0 auto;
-  z-index: 1;
-  background-color: #a87878 /*735353*/;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  border-bottom: solid 3px #C70000;
-  border-right: solid 3px #C70000;
-  border-left: solid 3px #C70000;
-}
-
-
-main {
-  margin-top: 110px;
-}
-
-.main-nav ul {
-  overflow: auto;
-  padding-top: 15px;
-}
-
-.main-nav li {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-left: 25px;
-  /*width: 20%;*/
-  float: left;
-}
-
-#admin-login-link {
-  float: right;
-  margin-right: 25px;
-}
-
-#new-book {
-  margin: 10px;
-  text-align: center;
-}
-
-#new-book label {
-  margin: 10px;
-  display: block;
-}
-
-#new-book input, #new-book textarea {
-  width: 100%;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  /*display: block;*/
-}
-
-#new-book button {
-  display: block;
-  margin: 0 auto;
-  height: 40px;
-  width: 100%;
-}
-
-#new-book th {
-  font-weight: bold;
-  vertical-align: middle;
-  text-align: right;
-  width: 20%;
-}
-
-#new-book table {
-  width: 100%;
-}
-
-#new-book td {
-  /*font-weight: bold;*/
-  vertical-align: middle;
-  width: 80%;
-}
-
-#admin-form {
-  text-align: center;
-  margin: 20px;
-}
-
-#admin-form button {
-  display: block;
-  margin: 0 auto;
-}
-
-#admin-form label, #admin-form input {
-  margin: 20px;
-}
-/*#new-book span {
-  display: inline;
-}*/
 
 .icon-menu {
   display: inline;
@@ -115,12 +17,13 @@ main {
   top: 0.5vh;
   right: 0.5vw;
   font-size: 300%;
+  cursor: pointer;
+
 }
 
 /*Drop details link down*/
 .book-item a {
   display: block;
-
 }
 
 .book-item {
@@ -139,18 +42,8 @@ main {
   max-width: 480px;
 }
 
-.error-view, .about-view, .create-view, .admin-view, .book-view > div, footer {
+.error-view, .about-view, .create-view, .admin-view, .book-view > div, footer, .container a {
   border: solid 3px #C70000;
   background-color: #c2c1c1;
   border-radius: 10px;
-}
-
-.book-view > div, footer {
-  margin: 2% auto 3% auto;
-  width: 75%;
-  text-align: center;
-}
-
-footer {
-  padding: 1%;
 }

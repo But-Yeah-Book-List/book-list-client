@@ -1,3 +1,50 @@
 .about-us p {
   text-align: center;
 }
+
+
+#admin-login-link, #new-book-link {
+  float: right;
+  margin: 10px 10px 10px 15px;
+}
+
+#new-book {
+  margin: 10px;
+  text-align: center;
+}
+
+#new-book label {
+  margin: 10px;
+  display: block;
+}
+
+#new-book input, #new-book textarea {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#new-book th {
+  font-weight: bold;
+  vertical-align: middle;
+  text-align: right;
+  width: 20%;
+}
+
+#new-book table {
+  width: 100%;
+}
+
+#new-book td {
+  vertical-align: middle;
+  width: 80%;
+}
+
+#admin-form {
+  text-align: center;
+  margin: 20px;
+}
+
+#admin-form label, #admin-form input {
+  margin: 20px;
+}
