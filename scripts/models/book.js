@@ -14,11 +14,31 @@ var app = app || {};
     module.errorView.initErrorPage(err);
   }
 
+  Book.all = [];
+
   Book.prototype.toHtml = function(type) {
     let template = Handlebars.compile($(`#book-${type}-template`).text());
 
     return template(this);
   };
+
+  Book.loadAll = rows => {
+    Book.all = rows.sort((a,b) => a.title.toLowerCase().localeCompare(b.title.toLowerCase())).map(bookObject => new Book(bookObject));
+  };
+
+  Book.fetchAll = (ctx, next) => {
+    $.get(`${module.__API_URL__}/api/v1/books`)
+      .then(Book.loadAll)
+      .then(next)
+      .catch(errorCallback);
+  };
+
+  Book.fetchOne = (ctx, next) => {
+    $.get(`${module.__API_URL__}/api/v1/books/${ctx.params.book_id}`)
+      .then(results => ctx.book = results[0])
+      .then(next)
+      .catch(errorCallback);
+  }
 
   Book.deleteBook = function(ctxBookId) {
     $.ajax({
@@ -29,11 +49,16 @@ var app = app || {};
       .catch(console.error);
   };
 
-  Book.all = [];
-
-  Book.loadAll = rows => {
-    Book.all = rows.sort((a,b) => a.title < b.title ? -1 : a.title > b.title ? 1 : 0).map(bookObject => new Book(bookObject));
-  };
+  Book.getFormData = function(e) {
+    let book ={
+      title: e.target.title.value,
+      author: e.target.author.value,
+      isbn: e.target.isbn.value,
+      image_url: e.target.image_url.value,
+      description: e.target.description.value,
+    }
+    return book;
+  }
 
   Book.updateBook = function(ctx, newBookData) {
     $.ajax({
@@ -51,47 +76,11 @@ var app = app || {};
       .catch(errorCallback);
   };
 
-  Book.fetchAll = (ctx, next) => {
-    $.get(`${module.__API_URL__}/api/v1/books`)
-      .then(Book.loadAll)
-      .then(next)
-      .catch(errorCallback);
-  };
-
-  Book.fetchOne = (ctx, next) => {
-    $.get(`${module.__API_URL__}/api/v1/books/${ctx.params.book_id}`)
-      .then(results => ctx.book = results[0])
-      .then(next)
-      .catch(errorCallback);
-  }
-
-  Book.createBookHandler = function(e) {
-    e.preventDefault();
-    Book.addNewBook(Book.getFormData(e));
-  };
-
   Book.addNewBook = function(book) {
     $.post(`${module.__API_URL__}/api/v1/books`, book)
       .then(() => page('/'))
       .catch(errorCallback);
   };
-
-  Book.getFormData = function(e) {
-    let book ={
-      title: e.target.title.value,
-      author: e.target.author.value,
-      isbn: e.target.isbn.value,
-      image_url: e.target.image_url.value,
-      description: e.target.description.value,
-    }
-    return book;
-  }
-
-  //jQuery for Icon Menu
-  $('.icon-menu').on('click', () => {
-    $('.menu-link').toggle()
-    if(!localStorage.isAdmin) $('#new-book-link').hide();
-  });
 
   module.Book = Book;
 })(app);
