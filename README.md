@@ -1,7 +1,7 @@
 # But Yeah Book List
 
 **Author**: Seth Donohue and Robert Reed
-**Version**: 1.0.0
+**Version**: 1.3.15
 
 ## Overview
 The goal of this project is to implement a basic full stack application scaffold for a book list, which will render books from a PostgreSQL database.
@@ -18,9 +18,45 @@ Connect your server repo to heroku
 - heroku
 
 ## Change Log
-<!-- Use this are to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an examples:
+### 11/7/17
+- Initial scaffolding
+- deployment to gh-pages working
 
-01-01-2001 4:59pm - Application now has a fully-functional express server, with GET and POST routes for the book resource.
+### 11/8/17
+- added routes for communication with server
+- local setup established
+- Added Book constructor
+- error-view.js added
+- books rendering to page
+- basic smaccs styling applied
+- data migrated to server
+- scaffolded client-side routing
+- page.js implemented (not working)
+
+### 11/9/17
+- page.js routes functioning
+- added form to add new book, setup with post route
+- added hamburger menu
+- added functionality to delete a book
+- added functionality to update a book
+- added page.js base fix
+
+### 11/10/17
+- Added admin functionality
+- Added conditional logic to establish local vs remote server
+- page.js routes refactored using ctx and next
+- Added "loading" section
+- Added routes for Admin and verify method
+- Admin login logic working
+
+### 11/11/17
+- more css
+- refactored html
+- added about us route
+- final css tweaks
+
+### 11/12/17
+- Merging working branches into master and deploying.
 
 ## Credits and Collaborations
-<!-- Give credit (and a link) to other people or resources that helped you build this application. -->
+Credit to CodeFellows for project idea.
