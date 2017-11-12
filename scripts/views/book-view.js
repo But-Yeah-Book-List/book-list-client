@@ -54,5 +54,10 @@ var app = app || {};
     $('#new-book').on('submit', module.Book.createBookHandler);
   }
 
+  bookView.initAboutPage = function() {
+    $('.container').hide();
+    $('.about-view').show();
+  }
+
   module.bookView = bookView;
 })(app);
