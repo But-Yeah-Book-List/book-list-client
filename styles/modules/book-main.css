@@ -52,10 +52,22 @@ p {
 }
 
 .container a {
-  margin: 10%;
+  margin: 2%;
   border: white 3px;
 }
 
 textarea {
   resize: none;
 }
+
+/*
+TODO
+pull first
+cursor pointer on links and divs
+add margin to
+make update and delete look like buttons
+margin on items in detail view
+style nav links
+add custom font
+FLOAT RIGHT ADD A BOOK
+*/
