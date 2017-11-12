@@ -1,8 +1,12 @@
+
+
 body {
   max-width: 600px;
   margin: 0 auto;
-  background: red;
+  background: #862C2C;
 }
+
+
 
 .max {
   max-width: 600px;
@@ -15,7 +19,12 @@ header {
   min-height: 60px;
   margin: 0 auto;
   z-index: 1;
-  background-color: #b3b3b3;
+  background-color: #a87878 /*735353*/;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom: solid 3px #C70000;
+  border-right: solid 3px #C70000;
+  border-left: solid 3px #C70000;
 }
 
 nav {
@@ -27,13 +36,27 @@ main {
   top: 100px;
 }
 
+.main-nav ul {
+  overflow: auto;
+  padding-top: 15px;
+}
+
 .main-nav li {
-  margin: 0px 10px 5px 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 25px;
+  /*width: 20%;*/
+  float: left;
+}
+
+#admin-login-link {
+  float: right;
+  margin-right: 25px;
 }
 
 #new-book {
   margin: 10px;
-  text-align: left;
+  text-align: center;
 }
 
 #new-book label {
@@ -41,6 +64,50 @@ main {
   display: block;
 }
 
+#new-book input, #new-book textarea {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  /*display: block;*/
+}
+
+#new-book button {
+  display: block;
+  margin: 0 auto;
+  height: 40px;
+  width: 100%;
+}
+
+#new-book th {
+  font-weight: bold;
+  vertical-align: middle;
+  text-align: right;
+  width: 20%;
+}
+
+#new-book table {
+  width: 100%;
+}
+
+#new-book td {
+  /*font-weight: bold;*/
+  vertical-align: middle;
+  width: 80%;
+}
+
+#admin-form {
+  text-align: center;
+  margin: 20px;
+}
+
+#admin-form button {
+  display: block;
+  margin: 0 auto;
+}
+
+#admin-form label, #admin-form input {
+  margin: 20px;
+}
 /*#new-book span {
   display: inline;
 }*/
@@ -57,13 +124,15 @@ main {
 /*Drop details link down*/
 .book-item a {
   display: block;
+
 }
 
 .book-item {
   text-align: center;
   margin-bottom: 5%;
-  background-color: grey;
+  background-color: #888888;
   padding: 5% 0px;
+  border-radius: 10px;
 }
 
 .book-list-image {

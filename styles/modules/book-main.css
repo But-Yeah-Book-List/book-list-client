@@ -15,10 +15,14 @@ h1 {
 
 h2 {
   font-size: 150%;
-  margin-bottom: .5%;
+  margin: .5% auto;
   text-align: center;
 }
 
+.book-item {
+  border: solid 3px #C70000;
+
+}
 h3 {
   text-align: center;
   font-size: 125%;
