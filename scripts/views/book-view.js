@@ -31,6 +31,7 @@ var app = app || {};
   };
 
   bookView.initUpdateFormPage = function(ctx) {
+    if(!localStorage.isAdmin) page('/');
     $('.container').hide();
     $('#new-book button').text('Update Book');
     $('.create-view').show();
@@ -47,6 +48,7 @@ var app = app || {};
   };
 
   bookView.initFormPage = function() {
+    if(!localStorage.isAdmin) page('/');
     $('.container').hide();
     $('#new-book').trigger('reset');
     $('.create-view').show();

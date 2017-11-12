@@ -38,7 +38,10 @@ var app = app || {};
       $('.admin-only').hide();
       delete localStorage.isAdmin;
       $('#admin-login-link a').text('Admin Login').off();
+      $('#new-book-link').hide();
+      if(location.pathname.match(/[(new)(update)]/)) page('/');
     });
+    $('#new-book-link').show();
     ctx.params.book_id ? page(`/books/${ctx.params.book_id}`) : page('/');
   }
 
