@@ -88,7 +88,10 @@ var app = app || {};
   }
 
   //jQuery for Icon Menu
-  $('.icon-menu').on('click', () => $('.menu-link').toggle());
+  $('.icon-menu').on('click', () => {
+    $('.menu-link').toggle()
+    if(!localStorage.isAdmin) $('#new-book-link').hide();
+  });
 
   module.Book = Book;
 })(app);
