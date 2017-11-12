@@ -12,5 +12,4 @@ page('/admin', app.adminView.initAdminPage, app.adminView.setAdmin);
 page('/admin/:book_id', app.adminView.initAdminPage, app.adminView.setAdmin);
 page('/about', app.bookView.initAboutPage);
 page('/error', app.errorView.initErrorPage);
-
 page();

@@ -5,8 +5,13 @@ var app = app || {};
 (function(module){
   const bookView = {};
 
+  // Initial View Setup
   $('.container').hide();
   $('.fetching-data').show();
+  $('.icon-menu').on('click', () => {
+    $('.menu-link').toggle()
+    if(!localStorage.isAdmin) $('#new-book-link').hide();
+  });
 
   bookView.initIndexPage = function() {
     $('.container').hide();
@@ -30,9 +35,24 @@ var app = app || {};
     $('#admin-login-link a').attr('href', `admin/${ctx.params.book_id}`);
   };
 
+  bookView.initFormPage = function() {
+    if(!localStorage.isAdmin) page('/');
+    $('.container').hide();
+    $('#new-book').trigger('reset');
+    $('.create-view h2').text('Add a New Book');
+    $('#new-book button').text('Add Book');
+    $('.create-view').show();
+    $('#new-book').off();
+    $('#new-book').on('submit', function(e) {
+      e.preventDefault();
+      module.Book.addNewBook(module.Book.getFormData(e));
+    });
+  }
+
   bookView.initUpdateFormPage = function(ctx) {
     if(!localStorage.isAdmin) page('/');
     $('.container').hide();
+    $('.create-view h2').text(`Update ${ctx.book.title}`);
     $('#new-book button').text('Update Book');
     $('.create-view').show();
     $('#title-form').val(ctx.book.title);
@@ -46,15 +66,6 @@ var app = app || {};
       module.Book.updateBook(ctx, module.Book.getFormData(e));
     });
   };
-
-  bookView.initFormPage = function() {
-    if(!localStorage.isAdmin) page('/');
-    $('.container').hide();
-    $('#new-book').trigger('reset');
-    $('.create-view').show();
-    $('#new-book').off();
-    $('#new-book').on('submit', module.Book.createBookHandler);
-  }
 
   bookView.initAboutPage = function() {
     $('.container').hide();
